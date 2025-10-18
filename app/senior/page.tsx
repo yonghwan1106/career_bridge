@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from '../lib/store';
 import { careerApi } from '../lib/api';
+import Navigation from '../components/Navigation';
 
 export default function SeniorDashboard() {
   const router = useRouter();
@@ -79,6 +80,15 @@ export default function SeniorDashboard() {
           </button>
         </div>
       </header>
+
+      {/* Navigation */}
+      <Navigation
+        items={[
+          { name: 'AI 역량 분석', href: '/senior', icon: '🤖' },
+          { name: '전체 일자리', href: '/senior/jobs', icon: '💼' },
+          { name: '내 프로필', href: '/senior/profile', icon: '👤' }
+        ]}
+      />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">

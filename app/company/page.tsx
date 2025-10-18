@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from '../lib/store';
 import { careerApi } from '../lib/api';
+import Navigation from '../components/Navigation';
 
 export default function CompanyDashboard() {
   const router = useRouter();
@@ -81,6 +82,15 @@ export default function CompanyDashboard() {
           </button>
         </div>
       </header>
+
+      {/* Navigation */}
+      <Navigation
+        items={[
+          { name: 'AI 직무 재설계', href: '/company', icon: '🔧' },
+          { name: '인재 풀', href: '/company/talents', icon: '👥' },
+          { name: '내 채용공고', href: '/company/my-jobs', icon: '📋' }
+        ]}
+      />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
