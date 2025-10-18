@@ -1,0 +1,147 @@
+[
+  {
+    "id": "job-001",
+    "company": "테크스타트업 A",
+    "company_size": "50명",
+    "location": "서울 강남구",
+    "title": "CFO (재무총괄)",
+    "employment_type": "프로젝트 (3개월)",
+    "description": "스타트업의 재무 전략 수립 및 투자 유치 지원이 필요합니다. 법인세 신고, 재무제표 작성 등 실무 경험이 풍부한 분을 찾습니다.",
+    "required_skills": [
+      "재무분석",
+      "법인세법",
+      "재무모델링",
+      "투자유치경험"
+    ],
+    "responsibilities": [
+      "재무 전략 수립 및 실행",
+      "법인세 신고 및 세무 관리",
+      "투자 유치를 위한 재무 자료 작성"
+    ],
+    "hours_per_week": "주 2일 (16시간)",
+    "salary_range": "월 300-400만원",
+    "posted_date": "2025-10-15",
+    "contact": "hr@techstartup-a.com"
+  },
+  {
+    "id": "job-002",
+    "company": "건설 중소기업 B",
+    "company_size": "30명",
+    "location": "경기 성남시",
+    "title": "건설 현장 안전 감사 컨설턴트",
+    "employment_type": "프로젝트 (6개월)",
+    "description": "신축 공사 현장의 안전 관리 체계 구축 및 정기 감사를 담당할 전문가를 모십니다.",
+    "required_skills": [
+      "안전관리",
+      "건설현장경험",
+      "공정관리",
+      "안전규정"
+    ],
+    "responsibilities": [
+      "현장 안전 관리 체계 수립",
+      "주 1회 현장 안전 감사",
+      "안전 교육 자료 제작 및 교육"
+    ],
+    "hours_per_week": "주 1회 방문 (8시간)",
+    "salary_range": "월 200-250만원",
+    "posted_date": "2025-10-12",
+    "contact": "jobs@construction-b.com"
+  },
+  {
+    "id": "job-003",
+    "company": "중소 제조업 C",
+    "company_size": "80명",
+    "location": "경기 화성시",
+    "title": "해외 수출 물류 컨설턴트",
+    "employment_type": "프로젝트 (4개월)",
+    "description": "동남아 시장 진출을 위한 수출 물류 프로세스 구축 및 바이어 발굴 지원",
+    "required_skills": [
+      "무역실무",
+      "국제물류",
+      "동남아시장전문성",
+      "영어"
+    ],
+    "responsibilities": [
+      "수출 물류 프로세스 설계",
+      "현지 바이어 발굴 및 계약 지원",
+      "수출 관련 서류 및 규정 자문"
+    ],
+    "hours_per_week": "주 10-15시간 (재택 가능)",
+    "salary_range": "프로젝트당 1,200만원",
+    "posted_date": "2025-10-10",
+    "contact": "export@manufacturing-c.com"
+  },
+  {
+    "id": "job-004",
+    "company": "패션 스타트업 D",
+    "company_size": "25명",
+    "location": "서울 성동구",
+    "title": "디지털 마케팅 멘토",
+    "employment_type": "파트타임 (6개월)",
+    "description": "주니어 마케터들을 위한 멘토링 및 SNS 마케팅 전략 수립 지원",
+    "required_skills": [
+      "디지털마케팅",
+      "SNS마케팅",
+      "브랜드전략",
+      "멘토링경험"
+    ],
+    "responsibilities": [
+      "주니어 마케터 1:1 멘토링 (주 1회)",
+      "SNS 마케팅 캠페인 기획 자문",
+      "월간 마케팅 성과 리뷰 및 피드백"
+    ],
+    "hours_per_week": "주 8시간 (재택 가능)",
+    "salary_range": "월 180-220만원",
+    "posted_date": "2025-10-08",
+    "contact": "team@fashion-d.com"
+  },
+  {
+    "id": "job-005",
+    "company": "IT 스타트업 E",
+    "company_size": "35명",
+    "location": "서울 판교",
+    "title": "시니어 개발 멘토 (Java/Python)",
+    "employment_type": "파트타임 (장기)",
+    "description": "신입 및 주니어 개발자를 위한 코드 리뷰, 아키텍처 설계 멘토링",
+    "required_skills": [
+      "Java",
+      "Python",
+      "시스템아키텍처",
+      "코드리뷰",
+      "프로젝트관리"
+    ],
+    "responsibilities": [
+      "주 2회 코드 리뷰 및 피드백",
+      "아키텍처 설계 자문",
+      "기술 세미나 진행 (월 1회)"
+    ],
+    "hours_per_week": "주 12시간 (재택 가능)",
+    "salary_range": "월 250-300만원",
+    "posted_date": "2025-10-05",
+    "contact": "dev@it-startup-e.com"
+  },
+  {
+    "id": "job-006",
+    "company": "금융 핀테크 F",
+    "company_size": "60명",
+    "location": "서울 여의도",
+    "title": "내부 감사 컨설턴트",
+    "employment_type": "프로젝트 (3개월)",
+    "description": "내부 회계 감사 시스템 구축 및 정기 감사 수행",
+    "required_skills": [
+      "내부감사",
+      "재무분석",
+      "법인세법",
+      "리스크관리"
+    ],
+    "responsibilities": [
+      "내부 통제 시스템 구축",
+      "분기별 회계 감사 수행",
+      "감사 보고서 작성 및 개선 방안 제시"
+    ],
+    "hours_per_week": "주 2일 (16시간)",
+    "salary_range": "프로젝트당 1,000만원",
+    "posted_date": "2025-10-03",
+    "contact": "audit@fintech-f.com"
+  }
+]

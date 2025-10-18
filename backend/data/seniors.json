@@ -1,0 +1,142 @@
+[
+  {
+    "id": "senior-001",
+    "name": "김철수",
+    "age": 62,
+    "location": "서울 강남구",
+    "career_summary": "대형 건설사 현장 소장 30년 경력",
+    "skills": [
+      "AutoCAD",
+      "공정관리",
+      "예산수립",
+      "안전관리",
+      "협력사관리",
+      "리더십"
+    ],
+    "experiences": [
+      "대형 건설 현장 총괄 관리",
+      "공정별 예산 편성 및 통제",
+      "안전 규정 감사 및 개선"
+    ],
+    "achievements": [
+      "00빌딩 신축 공사 안전사고 Zero 달성",
+      "예산 대비 15% 절감 달성"
+    ],
+    "work_preference": "주 2-3일, 프로젝트 기반",
+    "available_hours": "주 15-20시간",
+    "phone": "010-1234-5678",
+    "email": "kim.cs@example.com"
+  },
+  {
+    "id": "senior-002",
+    "name": "이영희",
+    "age": 58,
+    "location": "서울 서초구",
+    "career_summary": "다국적 기업 재무팀장 25년 경력",
+    "skills": [
+      "재무분석",
+      "법인세법",
+      "내부감사",
+      "재무모델링",
+      "Excel",
+      "ERP시스템"
+    ],
+    "experiences": [
+      "법인 세무 신고 및 전략 수립",
+      "내부 회계 감사 총괄",
+      "재무 제표 작성 및 분석"
+    ],
+    "achievements": [
+      "세무조사 대응 무결점 통과 3회",
+      "내부통제 시스템 구축으로 회계 투명성 향상"
+    ],
+    "work_preference": "재택근무 가능, 주 2일",
+    "available_hours": "주 16시간",
+    "phone": "010-2345-6789",
+    "email": "lee.yh@example.com"
+  },
+  {
+    "id": "senior-003",
+    "name": "박민수",
+    "age": 65,
+    "location": "경기 성남시",
+    "career_summary": "종합상사 해외영업본부장 28년 경력",
+    "skills": [
+      "무역실무",
+      "국제물류",
+      "계약협상",
+      "영어",
+      "중국어",
+      "동남아시장전문성"
+    ],
+    "experiences": [
+      "동남아 수출 비즈니스 개척",
+      "해외 바이어 발굴 및 계약 체결",
+      "국제 물류 프로세스 최적화"
+    ],
+    "achievements": [
+      "베트남 시장 진출 성공 (연 30억 매출)",
+      "주요 바이어와 장기 계약 체결 10건 이상"
+    ],
+    "work_preference": "프로젝트 기반, 멘토링",
+    "available_hours": "주 10-15시간",
+    "phone": "010-3456-7890",
+    "email": "park.ms@example.com"
+  },
+  {
+    "id": "senior-004",
+    "name": "정수진",
+    "age": 60,
+    "location": "서울 마포구",
+    "career_summary": "대기업 마케팅본부 상무 22년 경력",
+    "skills": [
+      "브랜드전략",
+      "디지털마케팅",
+      "SNS마케팅",
+      "데이터분석",
+      "캠페인기획",
+      "고객관계관리"
+    ],
+    "experiences": [
+      "신제품 런칭 캠페인 총괄",
+      "디지털 마케팅 전략 수립 및 실행",
+      "브랜드 포지셔닝 및 리뉴얼 프로젝트"
+    ],
+    "achievements": [
+      "00 브랜드 런칭 첫 해 목표 매출 120% 달성",
+      "SNS 마케팅으로 브랜드 인지도 40% 증가"
+    ],
+    "work_preference": "재택 가능, 주 3일",
+    "available_hours": "주 20시간",
+    "phone": "010-4567-8901",
+    "email": "jung.sj@example.com"
+  },
+  {
+    "id": "senior-005",
+    "name": "최동훈",
+    "age": 57,
+    "location": "서울 송파구",
+    "career_summary": "IT서비스 기업 개발팀장 20년 경력",
+    "skills": [
+      "Java",
+      "Python",
+      "SQL",
+      "프로젝트관리",
+      "시스템아키텍처",
+      "코드리뷰"
+    ],
+    "experiences": [
+      "대규모 웹 서비스 아키텍처 설계",
+      "개발팀 리드 및 멘토링",
+      "레거시 시스템 마이그레이션"
+    ],
+    "achievements": [
+      "주요 서비스 안정성 99.9% 달성",
+      "신입 개발자 10명 이상 양성"
+    ],
+    "work_preference": "멘토링, 코드 리뷰 중심",
+    "available_hours": "주 12시간",
+    "phone": "010-5678-9012",
+    "email": "choi.dh@example.com"
+  }
+]
