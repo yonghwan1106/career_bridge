@@ -29,10 +29,15 @@ export interface Senior {
   id: string;
   name: string;
   age: number;
+  location: string;
   career_summary: string;
   skills: string[];
+  experiences: string[];
+  achievements: string[];
   work_preference: string;
   available_hours: string;
+  phone: string;
+  email: string;
 }
 
 export interface Job {
