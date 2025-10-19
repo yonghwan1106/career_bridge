@@ -49,23 +49,6 @@ export default function CTASection() {
             </button>
           </div>
 
-          {/* Demo Account Info */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-2xl mx-auto mb-12">
-            <p className="text-white font-semibold mb-3">데모 계정 정보</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-              <div className="bg-white/10 rounded-lg p-3">
-                <p className="text-white/80 mb-1">시니어 계정</p>
-                <p className="text-white font-mono">senior@demo.com</p>
-                <p className="text-white font-mono">password123</p>
-              </div>
-              <div className="bg-white/10 rounded-lg p-3">
-                <p className="text-white/80 mb-1">기업 계정</p>
-                <p className="text-white font-mono">company@demo.com</p>
-                <p className="text-white font-mono">password123</p>
-              </div>
-            </div>
-          </div>
-
           {/* Additional Links */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <p className="text-white/80 text-sm">또는 프로젝트에 대해 더 알아보기:</p>
