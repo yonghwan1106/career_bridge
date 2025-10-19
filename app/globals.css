@@ -151,3 +151,33 @@ h3 {
   outline: 3px solid var(--primary-500);
   outline-offset: 2px;
 }
+
+/* Force white text on dark backgrounds */
+.bg-gray-900 {
+  color: white !important;
+}
+
+.bg-gray-900 h1,
+.bg-gray-900 h2,
+.bg-gray-900 h3,
+.bg-gray-900 h4,
+.bg-gray-900 h5,
+.bg-gray-900 h6 {
+  color: white !important;
+}
+
+.bg-gray-900 p {
+  color: rgb(209, 213, 219) !important; /* text-gray-300 */
+}
+
+.bg-gray-800 {
+  background-color: rgb(31, 41, 55) !important; /* gray-800 */
+}
+
+.bg-gray-800 h3 {
+  color: white !important;
+}
+
+.bg-gray-800 p {
+  color: rgb(209, 213, 219) !important;
+}
