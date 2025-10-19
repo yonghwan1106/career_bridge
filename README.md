@@ -199,16 +199,20 @@ type backend\.env  # Windows
 
 ### 프론트엔드 (Vercel)
 
-현재 프로젝트는 https://career-bridge-blush.vercel.app/ 에 배포되어 있습니다.
+**배포 URL**: https://career-bridge-blush.vercel.app/
 
 Vercel 환경 변수 설정:
 ```
-NEXT_PUBLIC_API_URL=https://your-backend-url.onrender.com
+NEXT_PUBLIC_API_URL=https://career-bridge-backend-q136.onrender.com
 ```
 
 ### 백엔드 (Render)
 
-백엔드를 Render에 배포하는 방법:
+**배포 URL**: https://career-bridge-backend-q136.onrender.com
+
+⚠️ **중요**: Render 무료 플랜은 비활성 상태에서 자동으로 중지되며, 첫 요청 시 50초 정도 소요될 수 있습니다.
+
+**이미 배포 완료!** 추가 배포가 필요한 경우:
 
 1. [Render.com](https://render.com)에 로그인
 2. "New Web Service" 클릭
@@ -221,21 +225,13 @@ NEXT_PUBLIC_API_URL=https://your-backend-url.onrender.com
    - `ANTHROPIC_API_KEY`: 실제 API 키 입력
 6. Deploy 클릭
 
-배포 후:
-1. Render에서 제공한 URL 복사 (예: `https://career-bridge-backend.onrender.com`)
-2. Vercel 프로젝트 설정에서 환경 변수 업데이트:
-   ```
-   NEXT_PUBLIC_API_URL=https://career-bridge-backend.onrender.com
-   ```
-3. Vercel에서 재배포
-
 ## 향후 개발 계획
 
 - [ ] 실제 데이터베이스 연동 (PostgreSQL/Supabase)
 - [ ] 실시간 채팅 기능
 - [ ] 결제 시스템 통합
 - [x] Vercel 배포 (완료)
-- [ ] 백엔드 배포 (Render)
+- [x] 백엔드 배포 (Render - 완료)
 - [ ] 모바일 반응형 개선
 - [ ] 접근성 향상 (WCAG 2.1 AA 준수)
 
