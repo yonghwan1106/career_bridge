@@ -95,13 +95,11 @@
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
   font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Segoe UI', 'Malgun Gothic', sans-serif;
   font-size: var(--font-body-size);
   line-height: var(--font-body-line-height);
-  /* 강제로 밝은 배경 적용 */
-  background-color: #ffffff !important;
+  /* section별 배경색을 존중하도록 body는 배경 없음 */
 }
 
 h1 {
