@@ -5,6 +5,10 @@ import { useRouter } from 'next/navigation';
 import { useAuthStore } from '../lib/store';
 import { careerApi } from '../lib/api';
 import Navigation from '../components/Navigation';
+import AIAnalysisLoader from '../components/features/AIAnalysisLoader';
+import SkillsChart from '../components/features/SkillsChart';
+import { BrainCircuit, Sparkles, TrendingUp } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function SeniorDashboard() {
   const router = useRouter();
@@ -15,6 +19,7 @@ export default function SeniorDashboard() {
   const [jobs, setJobs] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [analysisStep, setAnalysisStep] = useState(0);
 
   // 인증 확인 - useEffect 내부로 이동
   useEffect(() => {
@@ -31,19 +36,35 @@ export default function SeniorDashboard() {
 
     setLoading(true);
     setError('');
-    
+    setAnalysisStep(0);
+
     try {
+      // Step 1: 경력 텍스트 이해
+      setAnalysisStep(1);
+      await new Promise(resolve => setTimeout(resolve, 800));
+
+      // Step 2: 핵심 역량 추출
+      setAnalysisStep(2);
+      await new Promise(resolve => setTimeout(resolve, 800));
+
+      // Step 3: 역량 포트폴리오 생성
+      setAnalysisStep(3);
       const result = await careerApi.analyzeCareer(careerText);
       setPortfolio(result);
-      
-      // 역량 기반으로 추천 일자리 조회
+
+      // Step 4: 추천 일자리 검색
+      setAnalysisStep(4);
       if (result.skills && result.skills.length > 0) {
         const jobsResult = await careerApi.getJobs(result.skills.slice(0, 3).join(','));
         setJobs(jobsResult.jobs || []);
       }
+
+      // 완료
+      setAnalysisStep(5);
     } catch (err: any) {
       setError('분석 중 오류가 발생했습니다. 백엔드 서버가 실행 중인지 확인해주세요.');
       console.error(err);
+      setAnalysisStep(0);
     } finally {
       setLoading(false);
     }
@@ -67,14 +88,24 @@ export default function SeniorDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-primary-50/30 to-secondary-50/30">
       {/* Header */}
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-900">커리어 브릿지 - 시니어</h1>
+      <header className="glass-card shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl">
+              <BrainCircuit className="w-8 h-8 text-white" />
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
+                커리어 브릿지
+              </h1>
+              <p className="text-sm text-gray-600">시니어 대시보드</p>
+            </div>
+          </div>
           <button
             onClick={handleLogout}
-            className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-50"
+            className="px-6 py-2.5 text-sm font-semibold text-gray-700 hover:text-gray-900 border-2 border-gray-300 rounded-xl hover:bg-gray-50 transition-all duration-200 hover:border-primary-400"
           >
             로그아웃
           </button>
@@ -91,106 +122,212 @@ export default function SeniorDashboard() {
       />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">환영합니다!</h2>
-          <p className="text-gray-600">AI가 당신의 경력을 분석하여 최적의 일자리를 추천해드립니다.</p>
-        </div>
+        {/* Welcome Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-8 glass-card p-6 rounded-2xl"
+        >
+          <div className="flex items-center gap-3 mb-2">
+            <Sparkles className="w-6 h-6 text-primary-600" />
+            <h2 className="text-2xl font-bold text-gray-900">환영합니다!</h2>
+          </div>
+          <p className="text-gray-600 text-lg">AI가 당신의 경력을 분석하여 최적의 일자리를 추천해드립니다.</p>
+        </motion.div>
 
         {/* 경력 입력 섹션 */}
-        <div className="bg-white rounded-lg shadow p-6 mb-8">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">경력 정보 입력</h3>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="glass-card rounded-2xl shadow-lg p-8 mb-8 border-2 border-gray-200 hover:border-primary-300 transition-all duration-300"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-2 bg-primary-100 rounded-lg">
+              <BrainCircuit className="w-6 h-6 text-primary-600" />
+            </div>
+            <h3 className="text-xl font-bold text-gray-900">경력 정보 입력</h3>
+          </div>
           <textarea
             value={careerText}
             onChange={(e) => setCareerText(e.target.value)}
-            className="w-full h-48 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base resize-none"
+            className="w-full h-56 px-5 py-4 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-base resize-none transition-all duration-200"
             placeholder="경력 정보를 자유롭게 입력해주세요.&#10;&#10;예시:&#10;- 대형 건설사 현장 소장 30년 경력&#10;- AutoCAD, 공정 관리, 예산 수립 전문&#10;- 대형 프로젝트 안전사고 Zero 달성&#10;- 예산 대비 15% 절감 성과"
           />
           {error && (
-            <div className="mt-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="mt-4 bg-red-50 border-2 border-red-200 text-red-700 px-5 py-4 rounded-xl text-sm font-medium"
+            >
               {error}
-            </div>
+            </motion.div>
           )}
-          <button
+          <motion.button
             onClick={handleAnalyze}
             disabled={loading}
-            className="mt-4 w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold py-3 px-4 rounded-lg transition duration-200 text-base"
+            whileHover={{ scale: loading ? 1 : 1.02 }}
+            whileTap={{ scale: loading ? 1 : 0.98 }}
+            className="mt-6 w-full bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 disabled:from-gray-400 disabled:to-gray-400 text-white font-bold py-4 px-6 rounded-xl transition-all duration-200 text-lg shadow-lg hover:shadow-xl"
           >
             {loading ? 'AI 분석 중...' : 'AI로 분석하기'}
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
+
+        {/* AI Analysis Loader */}
+        {loading && analysisStep > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-8"
+          >
+            <AIAnalysisLoader currentStep={analysisStep} totalSteps={4} />
+          </motion.div>
+        )}
 
         {/* 역량 포트폴리오 */}
         {portfolio && (
-          <div className="bg-white rounded-lg shadow p-6 mb-8">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">나의 역량 포트폴리오</h3>
-            
-            <div className="space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="glass-card rounded-2xl shadow-lg p-8 mb-8 border-2 border-primary-200"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-2 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg">
+                <TrendingUp className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900">나의 역량 포트폴리오</h3>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
+              {/* Left Column: Skills Chart */}
               <div>
-                <h4 className="text-sm font-medium text-gray-700 mb-2">핵심 역량</h4>
-                <div className="flex flex-wrap gap-2">
-                  {portfolio.skills.map((skill: string, index: number) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium"
-                    >
-                      #{skill}
-                    </span>
-                  ))}
-                </div>
+                <SkillsChart skills={portfolio.skills} />
               </div>
 
-              <div>
-                <h4 className="text-sm font-medium text-gray-700 mb-2">주요 경험</h4>
-                <ul className="list-disc list-inside space-y-1 text-gray-600">
-                  {portfolio.experiences.map((exp: string, index: number) => (
-                    <li key={index}>{exp}</li>
-                  ))}
-                </ul>
-              </div>
-
-              {portfolio.achievements && portfolio.achievements.length > 0 && (
+              {/* Right Column: Details */}
+              <div className="space-y-6">
                 <div>
-                  <h4 className="text-sm font-medium text-gray-700 mb-2">주요 성과</h4>
-                  <ul className="list-disc list-inside space-y-1 text-gray-600">
-                    {portfolio.achievements.map((achievement: string, index: number) => (
-                      <li key={index}>{achievement}</li>
+                  <h4 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
+                    <span className="w-1.5 h-6 bg-gradient-to-b from-primary-500 to-secondary-500 rounded-full"></span>
+                    핵심 역량
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {portfolio.skills.map((skill: string, index: number) => (
+                      <motion.span
+                        key={index}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: index * 0.05 }}
+                        className="px-4 py-2 bg-gradient-to-r from-primary-100 to-secondary-100 text-primary-800 rounded-xl text-sm font-semibold border-2 border-primary-200 hover:border-primary-400 transition-all cursor-default"
+                      >
+                        #{skill}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
+                    <span className="w-1.5 h-6 bg-gradient-to-b from-secondary-500 to-accent-500 rounded-full"></span>
+                    주요 경험
+                  </h4>
+                  <ul className="space-y-2">
+                    {portfolio.experiences.map((exp: string, index: number) => (
+                      <motion.li
+                        key={index}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.05 }}
+                        className="flex items-start gap-3 text-gray-700 bg-white p-3 rounded-lg border border-gray-200"
+                      >
+                        <span className="text-secondary-600 font-bold mt-0.5">•</span>
+                        <span>{exp}</span>
+                      </motion.li>
                     ))}
                   </ul>
                 </div>
-              )}
 
-              {portfolio.raw_analysis && (
-                <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-                  <p className="text-sm text-gray-700">{portfolio.raw_analysis}</p>
-                </div>
-              )}
+                {portfolio.achievements && portfolio.achievements.length > 0 && (
+                  <div>
+                    <h4 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
+                      <span className="w-1.5 h-6 bg-gradient-to-b from-accent-500 to-primary-500 rounded-full"></span>
+                      주요 성과
+                    </h4>
+                    <ul className="space-y-2">
+                      {portfolio.achievements.map((achievement: string, index: number) => (
+                        <motion.li
+                          key={index}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.05 }}
+                          className="flex items-start gap-3 text-gray-700 bg-gradient-to-r from-accent-50 to-primary-50 p-3 rounded-lg border border-accent-200"
+                        >
+                          <span className="text-accent-600 font-bold mt-0.5">★</span>
+                          <span>{achievement}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
+
+            {portfolio.raw_analysis && (
+              <div className="mt-6 p-6 bg-gradient-to-br from-gray-50 to-primary-50/30 rounded-xl border-2 border-gray-200">
+                <h4 className="text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">AI 종합 분석</h4>
+                <p className="text-base text-gray-700 leading-relaxed">{portfolio.raw_analysis}</p>
+              </div>
+            )}
+          </motion.div>
         )}
 
         {/* 추천 일자리 */}
         {jobs.length > 0 && (
-          <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">추천 일자리</h3>
-            <div className="grid gap-4 md:grid-cols-2">
-              {jobs.map((job) => (
-                <div key={job.id} className="border border-gray-200 rounded-lg p-4 hover:border-blue-500 transition">
-                  <h4 className="font-semibold text-gray-900 mb-2">{job.title}</h4>
-                  <p className="text-sm text-gray-600 mb-2">{job.company}</p>
-                  <div className="flex flex-wrap gap-2 mb-2">
-                    <span className="px-2 py-1 bg-green-100 text-green-800 rounded text-xs">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="glass-card rounded-2xl shadow-lg p-8"
+          >
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-secondary-100 rounded-lg">
+                  <Sparkles className="w-6 h-6 text-secondary-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">추천 일자리</h3>
+              </div>
+              <span className="px-4 py-2 bg-gradient-to-r from-primary-100 to-secondary-100 text-primary-800 rounded-full text-sm font-bold">
+                {jobs.length}개 발견
+              </span>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              {jobs.map((job, index) => (
+                <motion.div
+                  key={job.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-primary-400 hover:shadow-xl transition-all duration-300"
+                >
+                  <h4 className="text-lg font-bold text-gray-900 mb-2">{job.title}</h4>
+                  <p className="text-sm text-gray-600 mb-3 font-medium">{job.company}</p>
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    <span className="px-3 py-1.5 bg-green-100 text-green-800 rounded-lg text-xs font-bold">
                       {job.employment_type}
                     </span>
-                    <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded text-xs">
+                    <span className="px-3 py-1.5 bg-purple-100 text-purple-800 rounded-lg text-xs font-bold">
                       {job.hours_per_week}
                     </span>
                   </div>
-                  <p className="text-sm text-gray-700 mb-2">{job.description.substring(0, 100)}...</p>
-                  <p className="text-sm font-semibold text-blue-600">{job.salary_range}</p>
-                </div>
+                  <p className="text-sm text-gray-700 mb-4 line-clamp-2">{job.description}</p>
+                  <div className="pt-4 border-t-2 border-gray-100">
+                    <p className="text-lg font-bold text-primary-600">{job.salary_range}</p>
+                  </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         )}
       </main>
     </div>
