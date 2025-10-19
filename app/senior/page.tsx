@@ -149,6 +149,32 @@ export default function SeniorDashboard() {
             </div>
             <h3 className="text-xl font-bold text-gray-900">경력 정보 입력</h3>
           </div>
+
+          {/* 예시 경력 버튼 */}
+          <div className="mb-4">
+            <p className="text-sm font-semibold text-gray-700 mb-2">빠른 테스트를 위한 예시 경력</p>
+            <div className="flex flex-wrap gap-2">
+              <button
+                onClick={() => setCareerText('대형 건설사 현장 소장으로 30년간 근무했습니다.\n\n주요 역량:\n- AutoCAD 및 BIM 설계 도구 전문가\n- 공정 관리 및 일정 수립 30년 경험\n- 예산 수립 및 원가 관리 전문\n- 안전관리 및 품질관리 책임자\n\n주요 경험:\n- 대형 아파트 단지 100개 이상 시공 관리\n- 해외 건설 프로젝트 PM 경험 (중동, 동남아)\n- 협력업체 관리 및 계약 업무\n\n주요 성과:\n- 안전사고 Zero 프로젝트 15건 달성\n- 예산 대비 평균 15% 원가 절감\n- 공기 단축으로 조기 준공 다수')}
+                className="px-4 py-2 bg-gradient-to-r from-primary-100 to-secondary-100 hover:from-primary-200 hover:to-secondary-200 text-primary-800 rounded-lg text-sm font-medium border border-primary-300 hover:border-primary-400 transition-all"
+              >
+                건설 현장 소장 30년
+              </button>
+              <button
+                onClick={() => setCareerText('글로벌 IT 기업 마케팅 총괄로 20년간 근무했습니다.\n\n주요 역량:\n- 디지털 마케팅 전략 수립 및 실행\n- SNS 마케팅 및 인플루언서 마케팅\n- 데이터 분석 (Google Analytics, SQL)\n- 브랜드 전략 및 포지셔닝\n- 글로벌 캠페인 기획 및 실행\n\n주요 경험:\n- 신제품 런칭 캠페인 50건 이상 기획\n- 글로벌 시장 진출 마케팅 전략 수립\n- 크로스 펑셔널 팀 리딩 경험\n- 외부 에이전시 및 파트너 관리\n\n주요 성과:\n- 브랜드 인지도 3년간 200% 증가\n- 마케팅 ROI 평균 350% 달성\n- 아시아 시장 점유율 1위 달성')}
+                className="px-4 py-2 bg-gradient-to-r from-primary-100 to-secondary-100 hover:from-primary-200 hover:to-secondary-200 text-primary-800 rounded-lg text-sm font-medium border border-primary-300 hover:border-primary-400 transition-all"
+              >
+                마케팅 총괄 20년
+              </button>
+              <button
+                onClick={() => setCareerText('대기업 재무팀 임원으로 25년간 근무했습니다.\n\n주요 역량:\n- 재무제표 분석 및 전략적 의사결정\n- 예산 수립 및 재무 계획\n- 투자 분석 및 M&A 실사\n- 세무 및 회계 감사 대응\n- ERP 시스템 (SAP, Oracle) 전문가\n\n주요 경험:\n- 연결재무제표 작성 및 공시 업무\n- IPO 및 유상증자 프로젝트 주도\n- 해외 법인 재무 관리 총괄\n- 내부통제 시스템 구축 및 운영\n\n주요 성과:\n- 재무 프로세스 개선으로 결산 기간 50% 단축\n- 세무 최적화로 연간 20억 절감\n- 성공적인 IPO 완수 (기업가치 5000억)\n- 재무 리스크 관리로 신용등급 상향')}
+                className="px-4 py-2 bg-gradient-to-r from-primary-100 to-secondary-100 hover:from-primary-200 hover:to-secondary-200 text-primary-800 rounded-lg text-sm font-medium border border-primary-300 hover:border-primary-400 transition-all"
+              >
+                재무/회계 임원 25년
+              </button>
+            </div>
+          </div>
+
           <textarea
             value={careerText}
             onChange={(e) => setCareerText(e.target.value)}

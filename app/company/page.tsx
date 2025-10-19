@@ -132,6 +132,32 @@ export default function CompanyDashboard() {
             </div>
             <h3 className="text-xl font-bold text-gray-900">직무 기술서 입력</h3>
           </div>
+
+          {/* 예시 직무 기술서 버튼 */}
+          <div className="mb-4">
+            <p className="text-sm font-semibold text-gray-700 mb-2">빠른 테스트를 위한 예시 직무</p>
+            <div className="flex flex-wrap gap-2">
+              <button
+                onClick={() => setJobDescription('건설 프로젝트 관리자 (정규직)\n\n담당 업무:\n- 대형 건설 프로젝트 전체 일정 관리 및 공정 관리\n- 협력업체 선정 및 계약 관리\n- 예산 수립 및 원가 관리\n- 현장 안전 관리 및 품질 관리 총괄\n- 설계 변경 및 인허가 업무 조율\n- 주간/월간 진행 보고서 작성\n- 발주처 및 이해관계자 커뮤니케이션\n\n필요 역량:\n- AutoCAD, BIM 등 설계 도구 활용 능력\n- 건설 공정 관리 경험 10년 이상\n- 예산 및 원가 관리 능력\n- 안전관리 및 품질관리 경험\n- 리더십 및 팀 관리 능력\n\n근무 조건:\n- 정규직 (주 5일, 8시간)\n- 서울 본사 및 현장 순회\n- 연봉 7000만원~1억원')}
+                className="px-4 py-2 bg-gradient-to-r from-secondary-100 to-accent-100 hover:from-secondary-200 hover:to-accent-200 text-secondary-800 rounded-lg text-sm font-medium border border-secondary-300 hover:border-secondary-400 transition-all"
+              >
+                건설 PM (정규직)
+              </button>
+              <button
+                onClick={() => setJobDescription('디지털 마케팅 총괄 (정규직)\n\n담당 업무:\n- 브랜드 전체 마케팅 전략 수립 및 실행\n- SNS 마케팅 및 퍼포먼스 마케팅 총괄\n- 신제품 런칭 캠페인 기획 및 실행\n- 마케팅 데이터 분석 및 ROI 측정\n- 외부 마케팅 에이전시 관리\n- 마케팅팀 (5명) 관리 및 육성\n- 월간 마케팅 성과 보고\n\n필요 역량:\n- 디지털 마케팅 전략 수립 및 실행 경험 10년 이상\n- Google Analytics, SQL 등 데이터 분석 능력\n- SNS 마케팅 및 바이럴 마케팅 전문성\n- 브랜드 전략 및 포지셔닝 경험\n- 팀 리딩 및 프로젝트 관리 능력\n\n근무 조건:\n- 정규직 (주 5일, 8시간)\n- 강남 본사 근무\n- 연봉 8000만원~1.2억원')}
+                className="px-4 py-2 bg-gradient-to-r from-secondary-100 to-accent-100 hover:from-secondary-200 hover:to-accent-200 text-secondary-800 rounded-lg text-sm font-medium border border-secondary-300 hover:border-secondary-400 transition-all"
+              >
+                마케팅 총괄 (정규직)
+              </button>
+              <button
+                onClick={() => setJobDescription('재무팀장 (정규직)\n\n담당 업무:\n- 재무제표 작성 및 분석 (월별, 분기별, 연간)\n- 예산 수립 및 재무 계획 총괄\n- 자금 관리 및 현금 흐름 분석\n- 세무 신고 및 회계 감사 대응\n- 투자 분석 및 M&A 재무실사 지원\n- ERP 시스템 관리 및 개선\n- 재무팀 (3명) 관리 및 업무 분장\n\n필요 역량:\n- 재무/회계 분야 경력 15년 이상\n- 재무제표 분석 및 재무 전략 수립 능력\n- SAP, Oracle 등 ERP 시스템 활용 능력\n- 세무 및 회계 감사 대응 경험\n- 투자 분석 및 M&A 실사 경험\n- CPA 또는 관련 자격증 우대\n\n근무 조건:\n- 정규직 (주 5일, 8시간)\n- 여의도 본사 근무\n- 연봉 9000만원~1.5억원')}
+                className="px-4 py-2 bg-gradient-to-r from-secondary-100 to-accent-100 hover:from-secondary-200 hover:to-accent-200 text-secondary-800 rounded-lg text-sm font-medium border border-secondary-300 hover:border-secondary-400 transition-all"
+              >
+                재무팀장 (정규직)
+              </button>
+            </div>
+          </div>
+
           <textarea
             value={jobDescription}
             onChange={(e) => setJobDescription(e.target.value)}
