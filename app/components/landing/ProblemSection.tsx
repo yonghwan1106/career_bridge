@@ -1,18 +1,12 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { TrendingUp, AlertCircle, Users } from 'lucide-react';
 
 export default function ProblemSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const problems = [
     {
@@ -46,7 +40,7 @@ export default function ProblemSection() {
     const [count, setCount] = useState(0);
 
     useEffect(() => {
-      if (!isInView || !mounted) return;
+      if (!isInView) return;
 
       const timer = setTimeout(() => {
         const duration = 2500; // 2.5초
@@ -69,16 +63,12 @@ export default function ProblemSection() {
 
       return () => clearTimeout(timer);
       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isInView, mounted]);
+    }, [isInView]);
 
     const displayValue = value % 1 !== 0 ? count.toFixed(1) : Math.floor(count);
-    
+
     return <>{displayValue}{suffix}</>;
   };
-
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <section ref={ref} className="py-20 bg-gray-900" style={{ backgroundColor: '#111827', color: '#ffffff' }}>
