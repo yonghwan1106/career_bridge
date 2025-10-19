@@ -81,7 +81,7 @@ export default function ProblemSection() {
   }
 
   return (
-    <section ref={ref} className="py-20 bg-gray-900">
+    <section ref={ref} className="py-20 bg-gray-900" style={{ backgroundColor: '#111827', color: '#ffffff' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -90,10 +90,10 @@ export default function ProblemSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#ffffff' }}>
             우리가 풀고자 하는 문제
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl max-w-3xl mx-auto" style={{ color: '#d1d5db' }}>
             초고령사회 진입과 노인 빈곤, 그리고 전문 인력의 경제활동 배제라는
             <br className="hidden md:block" />
             국가적 위기를 AI 기술로 해결합니다
@@ -109,6 +109,7 @@ export default function ProblemSection() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               className="bg-gray-800 rounded-2xl p-8 border border-gray-700 hover:border-primary-500 transition-all duration-300 hover:shadow-xl hover:shadow-primary-500/20"
+              style={{ backgroundColor: '#1f2937', color: '#ffffff' }}
             >
               <div className="mb-6">{problem.icon}</div>
 
@@ -122,9 +123,9 @@ export default function ProblemSection() {
                 )}
               </div>
 
-              <h3 className="text-xl font-semibold mb-2 text-white">{problem.title}</h3>
-              <p className="text-primary-400 font-medium mb-3">{problem.description}</p>
-              <p className="text-gray-300 text-sm leading-relaxed">{problem.detail}</p>
+              <h3 className="text-xl font-semibold mb-2" style={{ color: '#ffffff' }}>{problem.title}</h3>
+              <p className="text-primary-400 font-medium mb-3" style={{ color: '#fb923c' }}>{problem.description}</p>
+              <p className="text-sm leading-relaxed" style={{ color: '#d1d5db' }}>{problem.detail}</p>
             </motion.div>
           ))}
         </div>
@@ -137,11 +138,11 @@ export default function ProblemSection() {
           className="mt-16 text-center"
         >
           <div className="inline-block bg-primary-500/10 border border-primary-500/30 rounded-xl px-8 py-4">
-            <p className="text-lg text-white">
-              <span className="text-primary-400 font-semibold">국가 위기:</span> 생산가능인구 감소 + 복지 비용 증가
+            <p className="text-lg" style={{ color: '#ffffff' }}>
+              <span className="font-semibold" style={{ color: '#fb923c' }}>국가 위기:</span> 생산가능인구 감소 + 복지 비용 증가
             </p>
-            <p className="text-lg mt-2 text-white">
-              <span className="text-primary-400 font-semibold">개인 위기:</span> 경제적 자립 불가 + 전문성 사장
+            <p className="text-lg mt-2" style={{ color: '#ffffff' }}>
+              <span className="font-semibold" style={{ color: '#fb923c' }}>개인 위기:</span> 경제적 자립 불가 + 전문성 사장
             </p>
           </div>
         </motion.div>
