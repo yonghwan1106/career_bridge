@@ -81,7 +81,7 @@ export default function ProblemSection() {
   }
 
   return (
-    <section ref={ref} className="py-20 bg-gray-900 text-white">
+    <section ref={ref} className="py-20 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -90,7 +90,7 @@ export default function ProblemSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
             우리가 풀고자 하는 문제
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -122,9 +122,9 @@ export default function ProblemSection() {
                 )}
               </div>
 
-              <h3 className="text-xl font-semibold mb-2">{problem.title}</h3>
+              <h3 className="text-xl font-semibold mb-2 text-white">{problem.title}</h3>
               <p className="text-primary-400 font-medium mb-3">{problem.description}</p>
-              <p className="text-gray-400 text-sm leading-relaxed">{problem.detail}</p>
+              <p className="text-gray-300 text-sm leading-relaxed">{problem.detail}</p>
             </motion.div>
           ))}
         </div>
@@ -137,10 +137,10 @@ export default function ProblemSection() {
           className="mt-16 text-center"
         >
           <div className="inline-block bg-primary-500/10 border border-primary-500/30 rounded-xl px-8 py-4">
-            <p className="text-lg">
+            <p className="text-lg text-white">
               <span className="text-primary-400 font-semibold">국가 위기:</span> 생산가능인구 감소 + 복지 비용 증가
             </p>
-            <p className="text-lg mt-2">
+            <p className="text-lg mt-2 text-white">
               <span className="text-primary-400 font-semibold">개인 위기:</span> 경제적 자립 불가 + 전문성 사장
             </p>
           </div>
