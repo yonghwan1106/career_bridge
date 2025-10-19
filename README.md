@@ -195,12 +195,47 @@ type backend\.env  # Windows
 2. 프론트엔드의 `.env.local` 파일에서 `NEXT_PUBLIC_API_URL` 확인
 3. CORS 설정 확인 (backend/app/main.py)
 
+## 배포
+
+### 프론트엔드 (Vercel)
+
+현재 프로젝트는 https://career-bridge-blush.vercel.app/ 에 배포되어 있습니다.
+
+Vercel 환경 변수 설정:
+```
+NEXT_PUBLIC_API_URL=https://your-backend-url.onrender.com
+```
+
+### 백엔드 (Render)
+
+백엔드를 Render에 배포하는 방법:
+
+1. [Render.com](https://render.com)에 로그인
+2. "New Web Service" 클릭
+3. GitHub 저장소 연결
+4. 설정:
+   - **Root Directory**: `backend`
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+5. 환경 변수 추가:
+   - `ANTHROPIC_API_KEY`: 실제 API 키 입력
+6. Deploy 클릭
+
+배포 후:
+1. Render에서 제공한 URL 복사 (예: `https://career-bridge-backend.onrender.com`)
+2. Vercel 프로젝트 설정에서 환경 변수 업데이트:
+   ```
+   NEXT_PUBLIC_API_URL=https://career-bridge-backend.onrender.com
+   ```
+3. Vercel에서 재배포
+
 ## 향후 개발 계획
 
 - [ ] 실제 데이터베이스 연동 (PostgreSQL/Supabase)
 - [ ] 실시간 채팅 기능
 - [ ] 결제 시스템 통합
-- [ ] Vercel 배포
+- [x] Vercel 배포 (완료)
+- [ ] 백엔드 배포 (Render)
 - [ ] 모바일 반응형 개선
 - [ ] 접근성 향상 (WCAG 2.1 AA 준수)
 
