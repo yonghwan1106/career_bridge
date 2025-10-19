@@ -68,7 +68,8 @@ export default function ProblemSection() {
       }, delay);
 
       return () => clearTimeout(timer);
-    }, [isInView, mounted, value, delay]);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isInView, mounted]);
 
     const displayValue = value % 1 !== 0 ? count.toFixed(1) : Math.floor(count);
     

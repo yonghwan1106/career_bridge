@@ -5,11 +5,12 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAuthStore } from '../../lib/store';
 import { careerApi } from '../../lib/api';
+import type { Senior } from '../../types';
 
 export default function TalentsPage() {
   const router = useRouter();
   const { user, logout } = useAuthStore();
-  const [seniors, setSeniors] = useState<any[]>([]);
+  const [seniors, setSeniors] = useState<Senior[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
 

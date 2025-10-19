@@ -5,11 +5,21 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAuthStore } from '../../lib/store';
 
+interface MyJob {
+  id: string;
+  title: string;
+  status: string;
+  applicants: number;
+  views: number;
+  posted_date: string;
+  employment_type: string;
+}
+
 export default function MyJobsPage() {
   const router = useRouter();
   const { user, logout } = useAuthStore();
-  
-  const [myJobs, setMyJobs] = useState([
+
+  const [myJobs] = useState<MyJob[]>([
     {
       id: '1',
       title: 'CFO (재무총괄)',

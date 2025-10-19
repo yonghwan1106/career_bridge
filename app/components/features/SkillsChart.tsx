@@ -9,7 +9,7 @@ interface SkillsChartProps {
 
 export default function SkillsChart({ skills }: SkillsChartProps) {
   // 스킬을 차트 데이터로 변환 (랜덤 점수 부여 - 실제로는 AI 분석 결과 사용)
-  const chartData = skills.slice(0, 6).map((skill, index) => ({
+  const chartData = skills.slice(0, 6).map((skill) => ({
     skill: skill.length > 10 ? skill.substring(0, 10) + '...' : skill,
     value: 70 + Math.random() * 30, // 70-100 사이의 값
     fullLabel: skill

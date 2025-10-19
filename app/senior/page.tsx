@@ -9,14 +9,15 @@ import AIAnalysisLoader from '../components/features/AIAnalysisLoader';
 import SkillsChart from '../components/features/SkillsChart';
 import { BrainCircuit, Sparkles, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
+import type { CareerAnalysisResult, Job } from '../types';
 
 export default function SeniorDashboard() {
   const router = useRouter();
   const { user, logout } = useAuthStore();
-  
+
   const [careerText, setCareerText] = useState('');
-  const [portfolio, setPortfolio] = useState<any>(null);
-  const [jobs, setJobs] = useState<any[]>([]);
+  const [portfolio, setPortfolio] = useState<CareerAnalysisResult | null>(null);
+  const [jobs, setJobs] = useState<Job[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [analysisStep, setAnalysisStep] = useState(0);
@@ -61,7 +62,7 @@ export default function SeniorDashboard() {
 
       // 완료
       setAnalysisStep(5);
-    } catch (err: any) {
+    } catch (err) {
       setError('분석 중 오류가 발생했습니다. 백엔드 서버가 실행 중인지 확인해주세요.');
       console.error(err);
       setAnalysisStep(0);

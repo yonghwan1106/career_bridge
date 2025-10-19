@@ -5,11 +5,12 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAuthStore } from '../../lib/store';
 import { careerApi } from '../../lib/api';
+import type { Job } from '../../types';
 
 export default function JobsPage() {
   const router = useRouter();
   const { user, logout } = useAuthStore();
-  const [jobs, setJobs] = useState<any[]>([]);
+  const [jobs, setJobs] = useState<Job[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
 

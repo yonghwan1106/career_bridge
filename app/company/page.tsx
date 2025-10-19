@@ -7,14 +7,15 @@ import { careerApi } from '../lib/api';
 import Navigation from '../components/Navigation';
 import { Building2, Sparkles, Users, Workflow } from 'lucide-react';
 import { motion } from 'framer-motion';
+import type { JobRedesignResult, Senior } from '../types';
 
 export default function CompanyDashboard() {
   const router = useRouter();
   const { user, logout } = useAuthStore();
-  
+
   const [jobDescription, setJobDescription] = useState('');
-  const [redesignResult, setRedesignResult] = useState<any>(null);
-  const [seniors, setSeniors] = useState<any[]>([]);
+  const [redesignResult, setRedesignResult] = useState<JobRedesignResult | null>(null);
+  const [seniors, setSeniors] = useState<Senior[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -40,12 +41,12 @@ export default function CompanyDashboard() {
       
       // 필요 역량 기반으로 추천 시니어 조회
       if (result.roles && result.roles.length > 0) {
-        const allSkills = result.roles.flatMap((role: any) => role.required_skills);
+        const allSkills = result.roles.flatMap(role => role.required_skills);
         const uniqueSkills = [...new Set(allSkills)].slice(0, 3);
         const seniorsResult = await careerApi.getSeniors(uniqueSkills.join(','));
         setSeniors(seniorsResult.seniors || []);
       }
-    } catch (err: any) {
+    } catch (err) {
       setError('분석 중 오류가 발생했습니다. 백엔드 서버가 실행 중인지 확인해주세요.');
       console.error(err);
     } finally {
