@@ -180,7 +180,7 @@ export default function CompanyDashboard() {
             )}
 
             <div className="grid gap-6 md:grid-cols-2">
-              {redesignResult.roles.map((role: any, index: number) => (
+              {redesignResult.roles.map((role, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
